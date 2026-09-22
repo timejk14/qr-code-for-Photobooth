@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Photobooth QR Generator</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+    }
+
+    .container {
+      text-align: center;
+      background: white;
+      padding: 50px;
+      border-radius: 30px;
+    }
+
+    #qrcode {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>PHOTOBOOTH</h1>
+    <p>สแกน QR Code เพื่อรับรูปของคุณ</p>
+
+    <div id="qrcode"></div>
+
+  </div>
+
+  <script>
+
+    // ใส่ลิงก์ Google Drive Folder ของคุณตรงนี้
+    const DRIVE_URL =
+      "https://drive.google.com/drive/folders/1cqmKBLW49zRZymMlAVGo7b0rgfdi0SGF?usp=drive_link";
+
+    new QRCode(document.getElementById("qrcode"), {
+      text: DRIVE_URL,
+      width: 350,
+      height: 350,
+      correctLevel: QRCode.CorrectLevel.H
+    });
+
+  </script>
+
+</body>
+</html>
